@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          *{
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+          }
+          body{
+               height:100vh;
+               width:100vw;
+               background-color:#333;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+          }
+          .image-div
+          {    position: relative;
+               border:2px solid #444;
+               height:200px;
+               width:120%;
+               text-align: center;
+               line-height: 5;
+               /* perspective: 200px; */
+               font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+          }
+          h3{
+               color:white;
+               font-size: 45px;
+          }
+          .cursor
+          {
+               position: fixed;
+               top:20px;
+               left:20px;
+               height:12px;
+               width:10px;
+               background-color: #fff;
+               border-radius: 50%;
+               transition:0.1s;
+               transform:translate(-50%,-50%);
+               pointer-events:none;
+          }
+          .image-div:hover > .cursor
+          {
+               height:300px;
+               width:170px;
+               z-index:-2;
+               border-radius: 0px;
+               background-image: url("HD-wallpaper-sidhu-moose-wala-sitting-pose-indian-rapper-sidhu-moosewala-sitting-pose-singer-thumbnail.jpg");
+               background-position: center;
+               background-size: cover;
+               transform:rotateY(20deg);
+          }
+     </style>
+</head>
+<body>
+     
+     <div class="image-div">
+          <h3>Sidhu MooseWala</h3>
+          <div class="cursor"></div>
+     </div>
+     <script>
+          const cursor = document.querySelector(".cursor");
+          document.addEventListener("mousemove",function(event){
+               cursor.style.top=event.pageY + "px";
+               cursor.style.left=event.pageX + "px";
+          },false);
+     </script>
+</body>
+</html>
